@@ -20,7 +20,7 @@ end
 
 def get_user_input
   # code #get_user_input here
-  return gets.chomp
+  return gets
 end
 
 def end_game(card_total)
@@ -38,9 +38,11 @@ end
 def hit?(current_total)
   prompt_user
   input = get_user_input
-  case input
-  return current_total
-  return (current_total+deal_card)
+  while !(input == 'h' || input == 's')
+      input = invalid_command
+  end
+  return current_total if input == 's'
+  return (current_total+deal_card) if input == 'h'
 end
 
 def invalid_command
