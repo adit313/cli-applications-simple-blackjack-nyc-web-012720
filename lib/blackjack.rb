@@ -39,7 +39,10 @@ def hit?(current_total)
   prompt_user
   input = get_user_input
   while !(input == 'h' || input == 's')
-      input = invalid_command
+      invalid_command
+      prompt_user
+      input = get_user_input
+    return input
   end
   return current_total if input == 's'
   return (current_total+deal_card) if input == 'h'
@@ -48,9 +51,7 @@ end
 def invalid_command
   # code invalid_command here
   puts "Please enter a valid command"
-  prompt_user
-  input = get_user_input
-  return input
+
 end
 
 #####################################################
